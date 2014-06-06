@@ -1,0 +1,63 @@
+﻿@model self01.Models.Location
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Location</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.flagTopLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.flagTopLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.topLocationID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.topLocationID)
+        </dd>
+
+    </dl>
+</div>
+<div>
+<h3>Ecco le mie Location figlie.... carucce che sono ....</h3>
+<hr />
+    <dl class="dl-horizontal">
+        @foreach (var item in Model.ChildLocations)
+        {
+            <dt>@Html.DisplayFor(modelItem => item.name)</dt>
+            <dd>@Html.DisplayFor(modelItem => item.type)</dd>
+        }
+    </dl>
+</div>
+
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
